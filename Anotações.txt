@@ -1,0 +1,58 @@
+aula 28/09/26
+codigo1:
+
+class Veiculo {
+constructor(marca){
+if(new.target === Veiculo){
+throw new Error("Não instancie Veiculo diretamente!");
+}
+this.marca = marca;
+}
+
+mover(){
+throw new Error("Implemente o método mover()!");
+}
+}
+
+class Carro extends Veiculo{
+mover(){
+console.log(`${this.marca} está rodando.`);
+}
+}
+new Carro("toyota").mover(); //Toyota está rodando.
+
+codigo2:
+
+class Imprimivel {
+    imprimir(){
+        throw new Error("Implemente impimir()!");
+    }
+    exportarPDF(){
+        throw new Error("Implemente exportarPDF()!");
+    }
+}
+class Relatorio extends Imprimivel {
+    imprimir() {
+        console.log("Imprimindo relatório...");
+    }
+    exportarPDF() {
+        console.log("Exportando para PDF...");
+    }
+}
+new Relatorio().imprimir();
+new Relatorio().exportarPDF();
+
+pergunta da aula -> Qual a diferença entre classe abstrata e interface.
+Resumindo:
+Classe abstrata → serve como uma base para outras classes. Pode ter atributos, métodos concretos e métodos abstratos.
+
+Interface → define um contrato: diz quais métodos uma classe deve implementar, sem necessariamente definir como.
+
+Exemplo simples:
+
+Classe abstrata: Animal → pode ter nome e um método comer().
+
+Interface: Voador → define que deve existir voar().
+
+👉 Classe abstrata = “é um”
+👉 Interface = “sabe fazer”
